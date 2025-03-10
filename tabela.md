@@ -9,5 +9,5 @@ ex5: falta
 ex6: OK
 ex7: OK (mas dava pra melhorar)
 ex8: OK
-ex9: em progresso
+ex9: OK
 ex10: 

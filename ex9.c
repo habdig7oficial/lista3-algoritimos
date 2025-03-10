@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
         printf("Digite um numero inteiro bem grandão: ");
         scanf("%d", &num);
     }
-    else{
+    else {
         num = atoi(argv[1]);
     }
 
