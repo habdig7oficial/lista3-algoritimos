@@ -51,15 +51,29 @@ double divi(double *numeros, int size_list){
 
 /* Acabou operações */
 
-
 void menu(){
     typedef double (*myfunc) (double *, int);
-    myfunc funcs[] = {sum, sub, mul, divi};
+    myfunc funcs[] = {sum, sub, mul, divi, fc_exit};
 
     char opts [][50] = {"Somar dois números", "Subtrair dois números", "Multiplicar dois números", "Dividir dois números", "Sair"};
 
-    for(int i = 0; i < sizeof(funcs) / sizeof(myfunc); i++)
+    int size_opt = sizeof(funcs) / sizeof(myfunc);
+    for(int i = 0; i < sizeof(opts) / sizeof(opts[0]); i++)
         printf("(%c) - %s\n", 'a' + i, opts[i]);
+
+    char opt;
+    int lim;
+    do {
+        scanf("%c", &opt);
+        if(opt - 'a' > sizeof(funcs)  / sizeof(myfunc) - 1)
+            printf("valor inválido :( \n>> ");
+        else if (opt - 'a' == sizeof(funcs)  / sizeof(myfunc) - 1)
+            exit(0);
+    } while(opt - 'a' > sizeof(funcs)  / sizeof(myfunc) - 1);
+
+    double * lista_operacoes = malloc(sizeof(double) * 5);
+    funcs[opt](lista_operacoes, 5);
+
 
 }
 
