@@ -1,5 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
+#include "string.h"
+#include "stdbool.h"
 
 /*
     (a) Somar dois números
@@ -51,11 +53,12 @@ double divi(double *numeros, int size_list){
 
 /* Acabou operações */
 
+
 void menu(){
     typedef double (*myfunc) (double *, int);
-    myfunc funcs[] = {sum, sub, mul, divi, fc_exit};
+    myfunc funcs[] = {sum, sub, mul, divi, NULL};
 
-    char opts [][50] = {"Somar dois números", "Subtrair dois números", "Multiplicar dois números", "Dividir dois números", "Sair"};
+    char opts [][50] = {"Somar números", "Subtrair números", "Multiplicar números", "Dividir números", "Sair"};
 
     int size_opt = sizeof(funcs) / sizeof(myfunc);
     for(int i = 0; i < sizeof(opts) / sizeof(opts[0]); i++)
@@ -65,20 +68,38 @@ void menu(){
     int lim;
     do {
         scanf("%c", &opt);
-        if(opt - 'a' > sizeof(funcs)  / sizeof(myfunc) - 1)
+        lim = opt - 'a';
+        if( lim > sizeof(funcs)  / sizeof(myfunc) - 1)
             printf("valor inválido :( \n>> ");
-        else if (opt - 'a' == sizeof(funcs)  / sizeof(myfunc) - 1)
+        else if (lim == sizeof(funcs)  / sizeof(myfunc) - 1)
             exit(0);
-    } while(opt - 'a' > sizeof(funcs)  / sizeof(myfunc) - 1);
+    } while(lim > sizeof(funcs)  / sizeof(myfunc) - 1);
 
-    double * lista_operacoes = malloc(sizeof(double) * 5);
-    funcs[opt](lista_operacoes, 5);
+    printf(">> ");
+    scanf(" ");
+    char input[3000];
+    fgets(input, sizeof(input), stdin);
+
+    int should_alloc = 0;
+    char *new_str = strtok(input, " ");
+    printf("%s\n", new_str);
+    for(int i = 0; input[i] != '\0'; i++){
+        char *pieces = strtok(NULL, " ");
+        should_alloc++;
+        //printf("%s\n", pieces);
+    }
+
+    double * lista_operacoes = malloc(sizeof(double) * should_alloc);
+
+
+    printf("Resultado: %f\n\n\n", funcs[lim](lista_operacoes, should_alloc));
 
 
 }
 
 int main(){
-    menu();
+    while(true)
+        menu();
 }
 
 
