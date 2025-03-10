@@ -49,10 +49,29 @@ double divi(double *numeros, int size_list){
     return acc;
 }
 
+/* Acabou operações */
 
+
+void menu(){
+    typedef double (*myfunc) (double *, int);
+    myfunc funcs[] = {sum, sub, mul, divi};
+
+    char opts [][50] = {"Somar dois números", "Subtrair dois números", "Multiplicar dois números", "Dividir dois números", "Sair"};
+
+    for(int i = 0; i < sizeof(funcs) / sizeof(myfunc); i++)
+        printf("(%c) - %s\n", 'a' + i, opts[i]);
+
+}
 
 int main(){
-    /* Teste soma */
+    menu();
+}
+
+
+/*
+Testes da Funções
+
+    //Teste soma
     double * lista_operacoes = malloc(sizeof(double) * 5); // 5 elementos
 
     for(int i = 0; i < 5; i++){
@@ -62,11 +81,11 @@ int main(){
 
     printf("\n\n---------\n\n");
 
-    /* Teste multiplicação */
+    // Teste multiplicação 
     printf("mul: %f", mul(lista_operacoes, 5));
     printf("\n\n---------\n\n");
 
-    /* Teste subtração */
+    // Teste subtração 
     lista_operacoes = malloc(sizeof(double) * 3); // 3 elementos
     lista_operacoes[0] = 10.5;
     lista_operacoes[1] = 8.9;
@@ -76,7 +95,7 @@ int main(){
 
     printf("\n\n---------\n\n");
 
-    /* Teste Divisão */
+    // Teste Divisão
     lista_operacoes = malloc(sizeof(double) * 3); // 3 elementos
     lista_operacoes[0] = 4.5;
     lista_operacoes[1] = 2;
@@ -87,4 +106,4 @@ int main(){
 
     printf("\n\n---------\n\n");
 
-}
+*/
