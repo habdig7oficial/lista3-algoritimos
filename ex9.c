@@ -2,7 +2,7 @@
 #include "stdlib.h"
 #include "math.h"
 
-int somar_digitos(int numero){
+int conta_digitos(int numero){
     /* 
     Tamanho necessário para o array
     Log com o ceil calcula o número de digitos necessários
@@ -12,15 +12,15 @@ int somar_digitos(int numero){
     int mysize = (int)((ceil(log10(numero)) + 1) * sizeof(char));
     char arr[mysize];
     sprintf(arr, "%d", numero);
-    int res = 0;
-    for(int i = 0; i < mysize; i++){
-        char digit = arr[i];
-        res += atoi(&digit);
-    }
-    return res;
+
+    /* Menos um pra remover o terminador */
+    for (int i = 0; i < mysize - 1; i++)
+        printf("%d˚ - %c\n", i + 1, arr[i]);
+
+    return mysize - 1;
 }
 
 int main(){
-    printf("%d\n", somar_digitos(123));
+    printf("%d\n", conta_digitos(54321));
     return 0;
 }
