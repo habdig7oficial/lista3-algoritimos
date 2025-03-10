@@ -11,13 +11,17 @@ int potencia(int base, int expoente){
         
     int res = base;
     for(int i = 0; i < expoente - 1; i ++){
-        res = res * base;
+        res *= base;
     }
     return res;
 }
 
 
 int main(){
-    printf("%d", potencia(2, 2));
+    for(int i = 0; i < 10; i++)
+        printf("%d\n", potencia(2, i));
+    printf("----\n");
+    for(int i = 0; i < 10; i++)
+        printf("%d\n", potencia(-5, i));
     return 0;
 }
