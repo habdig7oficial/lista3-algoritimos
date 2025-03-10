@@ -24,10 +24,13 @@ int main(int argc, char *argv[]){
 
     int num;
 
-    if(atoi(argv[1]) == NULL){
+    if(argc == 1){
         scanf("%d", &num);
     }
+    else{
+        num = atoi(argv[1]);
+    }
 
-    printf("%d\n", conta_digitos(num));
+    printf("A quantidade de digitos é: %d\n", conta_digitos(num));
     return 0;
 }
