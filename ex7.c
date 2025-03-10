@@ -19,7 +19,7 @@ struct ContaNumeros conta_numeros(int inicio, int fim){
 
     int med = floor(intervalo / 2);
     int * num_impares = malloc(sizeof(int) * med);
-    int * num_pares = malloc(sizeof(int) * med);
+    int * num_pares = malloc(sizeof(int) * med); // pode alocar um espaço a mais que o necessário
     struct ContaNumeros res = {
         .pares = intervalo % 2 == 0 ? (med - 1) : med,
         .impares = med,
@@ -61,6 +61,9 @@ int main(){
     for(int i = 0; i < teste.distancia; i++){
         printf("%d\n", teste.arr_pares[i]);
     }
+
+    free(teste.arr_impares);
+    free(teste.arr_pares);
 
     return 0;
 }
