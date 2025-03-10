@@ -36,7 +36,7 @@ double mul(double *numeros, int size_list){
     return acc;
 }
 
-double div(double *numeros, int size_list){
+double divi(double *numeros, int size_list){
     double acc = numeros[0];
     for(int i = 1; i < size_list; i++){
         if(numeros[i] == 0){
@@ -78,11 +78,12 @@ int main(){
 
     /* Teste Divisão */
     lista_operacoes = malloc(sizeof(double) * 3); // 3 elementos
-    lista_operacoes[0] = 10.5;
-    lista_operacoes[1] = 8.9;
-    lista_operacoes[2] = 0;
+    lista_operacoes[0] = 4.5;
+    lista_operacoes[1] = 2;
+    lista_operacoes[2] = 2.25;
     
-    printf("sub: %f", sub(lista_operacoes, 3));
+    
+    printf("divi: %f", divi(lista_operacoes, 3));
 
     printf("\n\n---------\n\n");
 
