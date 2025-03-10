@@ -20,7 +20,14 @@ int conta_digitos(int numero){
     return mysize - 1;
 }
 
-int main(){
-    printf("%d\n", conta_digitos(54321));
+int main(int argc, char *argv[]){
+
+    int num;
+
+    if(atoi(argv[1]) == NULL){
+        scanf("%d", &num);
+    }
+
+    printf("%d\n", conta_digitos(num));
     return 0;
 }
