@@ -25,6 +25,7 @@ int main(int argc, char *argv[]){
     int num;
 
     if(argc == 1){
+        printf("Digite um numero inteiro bem grandão: ");
         scanf("%d", &num);
     }
     else{
