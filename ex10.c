@@ -12,7 +12,10 @@
     GNU Affero General Public License for more details.
 
     You should have received a copy of the GNU Affero General Public License
-    along with this program.  If not, see <https://www.gnu.org/licenses/>5.
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+    Repositório Git: https://github.com/habdig7oficial/lista3-algoritimos.git
+
 */
 
 #include "stdio.h"
