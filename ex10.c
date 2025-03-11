@@ -80,17 +80,21 @@ void menu(){
     char input[3000];
     fgets(input, sizeof(input), stdin);
 
-    int should_alloc = 0;
-    char *new_str = strtok(input, " ");
-    printf("%s\n", new_str);
-    for(int i = 0; input[i] != '\0'; i++){
-        char *pieces = strtok(NULL, " ");
-        should_alloc++;
-        //printf("%s\n", pieces);
-    }
+    /* Descobrindo área a alocar */
+    int should_alloc = 1;
+    for(int i = 0; input[i] != '\0'; i++)
+        if(input[i] == ' ')
+            should_alloc++;
 
+    
     double * lista_operacoes = malloc(sizeof(double) * should_alloc);
-
+    lista_operacoes[0] = atof(strtok(input, " "));
+    int so = 0;
+    for(int i = 0; input[i] != '\0'; i++){
+        lista_operacoes[so + 1] = atof(strtok(NULL, " "));
+        //printf("%s\n", pieces);
+        so++;
+    }
 
     printf("Resultado: %f\n\n\n", funcs[lim](lista_operacoes, should_alloc));
 
