@@ -42,7 +42,7 @@ double divi(double *numeros, int size_list){
     double acc = numeros[0];
     for(int i = 1; i < size_list; i++){
         if(numeros[i] == 0){
-            printf("Impossível dividir por 0");
+            printf("Impossível dividir por 0\n");
             return acc;
         }
         printf("%f\n", numeros[i]);
@@ -86,15 +86,19 @@ void menu(){
         if(input[i] == ' ')
             should_alloc++;
 
+    printf("%d\n\n", should_alloc);
+
     
-    double * lista_operacoes = malloc(sizeof(double) * should_alloc);
-    lista_operacoes[0] = atof(strtok(input, " "));
-    int so = 0;
-    for(int i = 0; input[i] != '\0'; i++){
-        lista_operacoes[so + 1] = atof(strtok(NULL, " "));
+    double * lista_operacoes = malloc(sizeof(double) * (should_alloc + 1));
+    char *ptr = strtok(input, " ");
+
+    for(int i = 0; ptr != NULL; i++){
+        lista_operacoes[i] = atof(ptr);
+        ptr = strtok(NULL, " ");
         //printf("%s\n", pieces);
-        so++;
+
     }
+    printf("%d", should_alloc);
 
     printf("Resultado: %f\n\n\n", funcs[lim](lista_operacoes, should_alloc));
 
